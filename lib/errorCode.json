@@ -1,0 +1,8 @@
+{
+    "SUCCESS": 0,
+
+    "NO_PERMISSIONS": 403,
+    "URI_NOT_FOUND": 404,
+
+    "UNKNOW_ERROR": 999
+}
