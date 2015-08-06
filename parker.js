@@ -3,6 +3,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     $ = require('./lib/utils'),
+    Job = require('./lib/job'),
     app = express();
 
 $.mongo.connect($.config.mongo, function(err) {
@@ -40,6 +41,12 @@ function start() {
     app.get('/*', function(req, res) {
         $.result(res, 'URI_NOT_FOUND', $.errCode.URI_NOT_FOUND, 403);
     });
+
+    // run jobs
+    Job.basePath = $.path.join(__dirname, 'jobs');
+    Job.register('alert');
+
+    //Job.tick('alert');
 
     // set log level
     // util.setLevel('ERROR');
