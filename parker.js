@@ -35,6 +35,7 @@ function start() {
     }));
 
     app.use('/wxapi', require('./lib/routers/wxapi'));
+    app.use('/test', require('./lib/routers/test'));
 
     app.get('/*', function(req, res) {
         $.result(res, 'URI_NOT_FOUND', $.errCode.URI_NOT_FOUND, 403);
