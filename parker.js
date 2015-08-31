@@ -3,7 +3,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     $ = require('./lib/utils'),
-    Job = require('./lib/job'),
+    job = require('./lib/job'),
     app = express();
 
 $.mongo.connect($.config.mongo, function(err) {
@@ -43,10 +43,11 @@ function start() {
     });
 
     // run jobs
-    Job.basePath = $.path.join(__dirname, 'jobs');
-    //Job.register('alert');
+    job.basePath = $.path.join(__dirname, 'jobs');
+    job.register('lunch');
+    job.register('dinner');
 
-    //Job.tick('alert');
+    //job.tick('alert');
 
     // set log level
     // util.setLevel('ERROR');

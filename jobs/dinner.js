@@ -1,7 +1,7 @@
 var $ = require('../lib/utils');
 
 module.exports = {
-    name: 'Alert',
+    name: 'Dinner Alert',
     time: '0 0 14 * * 1-5',
     tick: alert
 }
@@ -16,10 +16,10 @@ function alert() {
         while(openid = result.data.openid.pop()) {
             $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
                 first: {
-                    value: '订餐提醒：'
+                    value: '晚餐提醒：'
                 },
                 schedule: {
-                    value: '每日订餐提醒'
+                    value: '每日晚餐提醒'
                 },
                 time: {
                     value: '每天 14:00 提醒一次'
