@@ -44,7 +44,7 @@ function start() {
 
     // run jobs
     Job.basePath = $.path.join(__dirname, 'jobs');
-    Job.register('alert');
+    //Job.register('alert');
 
     //Job.tick('alert');
 
