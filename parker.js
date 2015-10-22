@@ -47,7 +47,7 @@ function start() {
     job.register('lunch');
     job.register('dinner');
 
-    //job.tick('alert');
+    //job.tick('lunch');
 
     // set log level
     // util.setLevel('ERROR');

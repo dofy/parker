@@ -1,4 +1,5 @@
 var $ = require('../lib/utils');
+var m = require('../lib/models/alert');
 
 module.exports = {
     name: 'Dinner Alert',
@@ -7,13 +8,18 @@ module.exports = {
 }
 
 function alert() {
-    $.wechat.getUser(function(err, result) {
-        var openid;
-        if(result.errcode){
-            console.log(result);
+    m.getList(function(err, result) {
+    //$.wechat.getUser(function(err, result) {
+        var item, openid;
+        //if(result.errcode){
+        if(err) {
+            //console.log(result);
+            console.log(err);
             return;
         }
-        while(openid = result.data.openid.pop()) {
+        //while(openid = result.data.openid.pop()) {
+        while(item = result.pop()) {
+            openid = item.from;
             $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
                 first: {
                     value: '晚餐提醒：'
