@@ -17,9 +17,7 @@ function sync() {
         }
         while(openid = result.data.openid.pop()) {
             $.wechat.getUserInfo(openid, function(err, result) {
-                u.sync(result, function(err, result) {
-                    console.log(result);
-                });
+                u.sync(result, function(err, result) { });
             });
         }
     });
