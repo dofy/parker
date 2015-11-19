@@ -51,8 +51,9 @@ function start() {
     job.basePath = $.path.join(__dirname, 'jobs');
     job.register('lunch');
     job.register('dinner');
+    job.register('sync');
 
-    //job.tick('lunch');
+    job.tick('sync');
 
     // set log level
     // util.setLevel('ERROR');
