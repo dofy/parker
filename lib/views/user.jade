@@ -1,0 +1,20 @@
+extends _layout
+
+block content
+    h2 #{today} #{tstr} - 订餐列表
+    .container
+        ul.nav.navbar-nav
+            li
+                a(href="./am") 上午
+            li
+                a(href="./pm") 下午
+    .container
+        ol.row
+            each user, index in users
+                li.col-md-3= sexs[user.sex]
+                    img.img-rounded(width=32,src="#{user.headimgurl}")
+                    |  #{user.nickname}
+    strong 订饭总人数：#{users.length}
+
+    style.
+        li { padding: 7px; }

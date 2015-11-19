@@ -2,6 +2,8 @@ var express = require('express'),
     compression = require('compression'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
+    path = require('path'),
+    jade = require('jade'),
     $ = require('./lib/utils'),
     job = require('./lib/job'),
     app = express();
@@ -16,6 +18,9 @@ $.mongo.connect($.config.mongo, function(err) {
 });
 
 function start() {
+    app.set('views', path.join(__dirname, 'lib/views'));
+    app.set('view engine', 'jade');
+
     app.use(compression({
         threshold: 512
     }));
@@ -36,7 +41,7 @@ function start() {
     }));
 
     app.use('/wxapi', require('./lib/routers/wxapi'));
-    app.use('/test', require('./lib/routers/test'));
+    app.use('/z', require('./lib/routers/admin'));
 
     app.get('/*', function(req, res) {
         $.result(res, 'URI_NOT_FOUND', $.errCode.URI_NOT_FOUND, 403);
