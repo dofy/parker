@@ -20,7 +20,7 @@ function sync() {
                 u.sync(result, function(err, result) {
                     console.log(result);
                 });
-            }
+            });
         }
     });
 }
