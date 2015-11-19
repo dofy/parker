@@ -53,7 +53,7 @@ function start() {
     job.register('dinner');
     job.register('sync');
 
-    job.tick('sync');
+    //job.tick('sync');
 
     // set log level
     // util.setLevel('ERROR');
