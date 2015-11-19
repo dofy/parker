@@ -1,5 +1,4 @@
 var $ = require('../lib/utils');
-var m = require('../lib/models/alert');
 var u = require('../lib/models/user');
 
 module.exports = {
