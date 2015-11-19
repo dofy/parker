@@ -2,18 +2,30 @@ extends _layout
 
 block content
     h2 #{today} #{tstr} - 订餐列表
-    .container
+    .container.no-print
         ul.nav.navbar-nav
             li
                 a(href="./am") 上午
             li
                 a(href="./pm") 下午
-    .row
-        each user, index in users
-            p.col-md-3= index + 1
-                | . #{sexs[user.sex]}
-                img.img-rounded(width=32,src="#{user.headimgurl}")
-                strong= user.nickname
+    table.table.table-bordered
+        thead
+            tr
+                th ID
+                th 昵称
+                th ID
+                th 昵称
+        tbody
+            each user, index in users
+                if index % 2 == 0
+                    tr
+                td= index + 1
+                td= sexs[user.sex]
+                    img.img-rounded(width=32,src="#{user.headimgurl}")
+                    |  #{user.nickname}
     strong 订饭总人数：#{users.length}
+
     style.
-        strong { padding: 5px; }
+        li { padding: 7px; }
+    style(media='print').
+        .no-print { display: none; }
