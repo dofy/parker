@@ -8,13 +8,12 @@ block content
                 a(href="./am") 上午
             li
                 a(href="./pm") 下午
-    .container
-        ol.row
-            each user, index in users
-                li.col-md-3= sexs[user.sex]
-                    img.img-rounded(width=32,src="#{user.headimgurl}")
-                    |  #{user.nickname}
+    .row
+        each user, index in users
+            p.col-md-3= index + 1
+                | . #{sexs[user.sex]}
+                img.img-rounded(width=32,src="#{user.headimgurl}")
+                strong= user.nickname
     strong 订饭总人数：#{users.length}
-
     style.
-        li { padding: 7px; }
+        strong { padding: 5px; }
