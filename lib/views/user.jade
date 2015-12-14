@@ -15,9 +15,11 @@ block content
                 th 昵称
                 th ID
                 th 昵称
+                th ID
+                th 昵称
         tbody
             each user, index in users
-                if index % 2 == 0
+                if index % 3 == 0
                     tr
                 td= index + 1
                 td= sexs[user.sex]
