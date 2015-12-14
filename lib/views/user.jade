@@ -22,7 +22,7 @@ block content
                 if index % 3 == 0
                     tr
                 td= index + 1
-                td= sexs[user.sex]
+                td
                     img.img-rounded(width=24,src="#{user.headimgurl}")
                     |  #{user.nickname}
     strong 订饭总人数：#{users.length}
