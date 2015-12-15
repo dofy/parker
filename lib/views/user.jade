@@ -1,7 +1,7 @@
 extends _layout
 
 block content
-    h4 #{today} #{tstr} - 订餐列表
+    h4 #{today} #{tstr} - 订餐列表 (#{users.length})
     .container.no-print
         ul.nav.navbar-nav
             li
@@ -16,8 +16,6 @@ block content
                 td
                     img.img-rounded(width=24,src="#{user.headimgurl}")
                     |  #{user.nickname}
-    strong 订饭总人数：#{users.length}
-
     style.
         li { padding: 7px; }
     style(media='print').
