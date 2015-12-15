@@ -3,7 +3,7 @@ var m = require('../lib/models/alert');
 
 module.exports = {
     name: 'Lunch Alert',
-    time: '0 0 10 * * 1-5',
+    time: '0 0 9 * * 1-5',
     tick: alert
 }
 
@@ -28,7 +28,7 @@ function alert() {
                     value: '每日午餐提醒'
                 },
                 time: {
-                    value: '每天 10:00 提醒一次'
+                    value: '每天 9:00 提醒一次'
                 },
                 remark: {
                     value: '别忘了订今天的午餐哦～'
