@@ -1,7 +1,7 @@
 extends _layout
 
 block content
-    h2 #{today} #{tstr} - 订餐列表
+    h4 #{today} #{tstr} - 订餐列表
     .container.no-print
         ul.nav.navbar-nav
             li
@@ -9,19 +9,10 @@ block content
             li
                 a(href="./pm") 下午
     table.table.table-bordered
-        thead
-            tr
-                th ID
-                th 昵称
-                th ID
-                th 昵称
-                th ID
-                th 昵称
         tbody
             each user, index in users
-                if index % 3 == 0
+                if index % 4 == 0
                     tr
-                td= index + 1
                 td
                     img.img-rounded(width=24,src="#{user.headimgurl}")
                     |  #{user.nickname}
