@@ -39,7 +39,7 @@
                     "key": "getAlert"
                 },
                 {
-                    "name": "取消订阅",
+                    "name": "取消提醒",
                     "type": "click",
                     "key": "cancelAlert"
                 },
