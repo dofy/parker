@@ -1,0 +1,16 @@
+extends _layout
+
+block content
+    h4 #{today} #{tstr} - 订餐列表 (#{users.length})
+    .container.no-print
+        a(href="./am?pf=mobi") 上午
+        | &nbsp;|&nbsp;
+        a(href="./pm?pf=mobi") 下午
+    .container
+        ol
+            each user, index in users
+                li
+                    img.img-rounded(width=24,src="#{user.headimgurl}")
+                    |  #{user.nickname}
+    style(media='print').
+        .no-print { display: none; }
