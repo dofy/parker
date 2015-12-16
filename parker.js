@@ -58,6 +58,11 @@ function start() {
     // set log level
     // util.setLevel('ERROR');
 
+    // create menu
+    $.wechat.createMenu(require('./lib/config/menu.json'), function(err, result) {
+        console.log(err, result);
+    });
+
     $.error('=====================================================');
     $.error('==    |-.-|    GEEK PARKER API SERVICE    |-.-|    ==');
     $.error('=====================================================');
