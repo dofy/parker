@@ -59,9 +59,7 @@ function start() {
     // util.setLevel('ERROR');
 
     // create menu
-    $.wechat.createMenu(require('./lib/config/menu.json'), function(err, result) {
-        console.log(err, result);
-    });
+    $.wechat.createMenu(require('./lib/config/menu.json'));
 
     $.error('=====================================================');
     $.error('==    |-.-|    GEEK PARKER API SERVICE    |-.-|    ==');
