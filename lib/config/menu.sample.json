@@ -6,7 +6,7 @@
                 {
                     "name": "午餐",
                     "type": "click",
-                    "key": "getLanch"
+                    "key": "getLunch"
                 },
                 {
                     "name": "晚餐",
@@ -21,7 +21,7 @@
                 {
                     "name": "午餐",
                     "type": "click",
-                    "key": "cancelLanch"
+                    "key": "cancelLunch"
                 },
                 {
                     "name": "晚餐",
