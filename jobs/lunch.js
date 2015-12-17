@@ -21,14 +21,8 @@ function alert() {
         //while(openid = result.data.openid.pop()) {
         while(item = result.pop()) {
             openid = item.from;
-            order.getInfo(openid, function(info){
-                if(info.orders.length)
-                    if(info.orders.length === 1 && info.orders[0].type !== 0) {
-                        pushAlert(openid);
-                    }
-                } else {
-                    pushAlert(openid);
-                }
+            order.hasOrder(openid, 0, function(info){
+                info.has || pushAlert(info.user);
             });
         }
     });
@@ -36,17 +30,17 @@ function alert() {
 
 function pushAlert(openid){
     $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
-                first: {
-                    value: '午餐提醒：'
-                },
-                schedule: {
-                    value: '每日午餐提醒'
-                },
-                time: {
-                    value: '每天 9:00 提醒一次'
-                },
-                remark: {
-                    value: '别忘了订今天的午餐哦～'
-                }
-            });
+        first: {
+            value: '午餐提醒：'
+        },
+        schedule: {
+            value: '每日午餐提醒'
+        },
+        time: {
+            value: '每天 9:00 提醒一次'
+        },
+        remark: {
+            value: '别忘了订今天的午餐哦～'
+        }
+    });
 }
