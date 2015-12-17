@@ -1,6 +1,6 @@
 var $ = require('../lib/utils');
 var m = require('../lib/models/alert');
-var order = require('../models/order');
+var order = require('../lib/models/order');
 
 module.exports = {
     name: 'Dinner Alert',
