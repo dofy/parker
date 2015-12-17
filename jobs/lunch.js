@@ -1,5 +1,6 @@
 var $ = require('../lib/utils');
 var m = require('../lib/models/alert');
+var order = require('../models/order');
 
 module.exports = {
     name: 'Lunch Alert',
@@ -20,7 +21,21 @@ function alert() {
         //while(openid = result.data.openid.pop()) {
         while(item = result.pop()) {
             openid = item.from;
-            $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
+            order.getInfo(openid, function(info){
+                if(info.orders.length)
+                    if(info.orders.length === 1 && info.orders[0].type !== 0) {
+                        pushAlert(openid);
+                    }
+                } else {
+                    pushAlert(openid);
+                }
+            });
+        }
+    });
+}
+
+function pushAlert(openid){
+    $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
                 first: {
                     value: '午餐提醒：'
                 },
@@ -34,6 +49,4 @@ function alert() {
                     value: '别忘了订今天的午餐哦～'
                 }
             });
-        }
-    });
 }
