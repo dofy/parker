@@ -39,6 +39,11 @@
             "name": "功能",
             "sub_button": [
                 {
+                    "name": "帮助",
+                    "type": "click",
+                    "key": "getHelp"
+                },
+                {
                     "name": "订阅提醒",
                     "type": "click",
                     "key": "getAlert"
