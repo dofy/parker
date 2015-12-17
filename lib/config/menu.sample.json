@@ -1,0 +1,59 @@
+{
+    "button": [
+        {
+            "name": "订餐",
+            "sub_button": [
+                {
+                    "name": "午餐",
+                    "type": "click",
+                    "key": "getLunch"
+                },
+                {
+                    "name": "晚餐",
+                    "type": "click",
+                    "key": "getDinner"
+                }
+            ]
+        },
+        {
+            "name": "取消",
+            "sub_button": [
+                {
+                    "name": "午餐",
+                    "type": "click",
+                    "key": "cancelLunch"
+                },
+                {
+                    "name": "晚餐",
+                    "type": "click",
+                    "key": "cancelDinner"
+                }
+            ]
+        },
+        {
+            "name": "功能",
+            "sub_button": [
+                {
+                    "name": "订阅提醒",
+                    "type": "click",
+                    "key": "getAlert"
+                },
+                {
+                    "name": "取消提醒",
+                    "type": "click",
+                    "key": "cancelAlert"
+                },
+                {
+                    "name": "订餐查询",
+                    "type": "click",
+                    "key": "getList"
+                },
+                {
+                    "name": "订餐名单",
+                    "type": "view",
+                    "url": "{{jump url}}"
+                }
+            ]
+        }
+    ]
+}
