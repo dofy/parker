@@ -1,7 +1,7 @@
 {
     "button": [
         {
-            "name": "订餐",
+            "name": "我要预订",
             "sub_button": [
                 {
                     "name": "午餐",
@@ -12,11 +12,16 @@
                     "name": "晚餐",
                     "type": "click",
                     "key": "getDinner"
+                },
+                {
+                    "name": "全天",
+                    "type": "click",
+                    "key": "getFull"
                 }
             ]
         },
         {
-            "name": "取消",
+            "name": "取消预订",
             "sub_button": [
                 {
                     "name": "午餐",
