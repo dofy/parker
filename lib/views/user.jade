@@ -11,10 +11,11 @@ block content
     table.table.table-bordered
         tbody
             each user, index in users
-                if index % 4 == 0
+                if index % 3 == 0
                     tr
+                td= index + 1
                 td
-                    img.img-rounded(width=24,src="#{user.headimgurl}")
+                    img.img-rounded(width=20,src="#{user.headimgurl}")
                     |  #{user.nickname}
     style.
         li { padding: 7px; }
