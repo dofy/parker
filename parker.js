@@ -41,7 +41,7 @@ function start() {
     }));
 
     app.use('/wxapi', require('./lib/routers/wxapi'));
-    app.use('/z', require('./lib/routers/admin'));
+    app.use('/z', require('./lib/routers/eatlist'));
 
     app.get('/*', function(req, res) {
         $.result(res, 'URI_NOT_FOUND', $.errCode.URI_NOT_FOUND, 403);
