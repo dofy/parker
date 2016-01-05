@@ -41,6 +41,7 @@ function start() {
     }));
 
     app.use('/wxapi', require('./lib/routers/wxapi'));
+    app.use('/y', require('./lib/routers/manager'));
     app.use('/z', require('./lib/routers/eatlist'));
 
     app.get('/*', function(req, res) {

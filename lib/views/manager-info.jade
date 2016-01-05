@@ -1,0 +1,19 @@
+extends _layout-m
+
+block content
+    div(data-role="page")
+        div(data-role="header",data-position="fixed")
+            h1 关于
+        .ui-content(data-role="main")
+            h3 关于
+        div(data-role="footer",data-position="fixed")
+            div(data-role="navbar")
+                ul
+                    li
+                        a(href="/z",data-icon="bullets",rel="external")
+                    li
+                        a(href="/y/meeting",data-icon="clock")
+                    li
+                        a(href="/y/users",data-icon="user")
+                    li
+                        a(href="/y/info",data-icon="info",class="ui-btn-active ui-state-persist")
