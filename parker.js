@@ -1,7 +1,7 @@
 var express = require('express'),
     compression = require('compression'),
     bodyParser = require('body-parser'),
-    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     path = require('path'),
     jade = require('jade'),
     $ = require('./lib/utils'),
@@ -27,7 +27,9 @@ function start() {
 
     app.use($.logAccess);
 
-    app.use(cookieParser($.config.secret));
+    app.use(session({
+        secret: $.config.secret
+    }));
 
     app.use(bodyParser.urlencoded({
         extended: false
