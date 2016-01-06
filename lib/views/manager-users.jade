@@ -1,16 +1,30 @@
 extends _layout-m
 
 block content
-    div(data-role="page")
+    #admin-user(data-role="page")
         div(data-role="header",data-position="fixed")
             h1 用户管理
         .ui-content(role="main")
-            ol(data-role="listview")
+            ol(data-role="listview",data-filter="true",data-filter-placeholder="查找用户...")
                 each user, index in users
                     li
-                        img(src="#{user.headimgurl}")
-                        strong  #{user.nickname}
-                        p #{user.country} - #{user.city}
+                        if isadmin
+                            a(
+                                href="#admin"
+                                data-openid="#{user.openid}"
+                                data-isadmin="#{user.isadmin}"
+                                data-transition="slide"
+                                data-rel="popup"
+                            )
+                                img(src="#{user.headimgurl}")
+                                strong #{user.nickname}
+                                if user.isadmin
+                                    span.mystart ★
+                                p #{user.country} - #{user.city}
+                        else
+                            img(src="#{user.headimgurl}")
+                            strong  #{user.nickname}
+                            p #{user.country} - #{user.city}
         div(data-role="footer",data-position="fixed")
             div(data-role="navbar")
                 ul
@@ -22,3 +36,17 @@ block content
                         a(href="/y/users",data-icon="user",class="ui-btn-active ui-state-persist")
                     li
                         a(href="/y/info",data-icon="info")
+        #admin(data-role="popup",data-arrow="true",style="width: 200px;")
+            form
+                div(data-role="header")
+                    h3 设置角色
+                .ui-content(role="main")
+                    input#openid(type="hidden",name="openid",value="")
+                    .ui-field-contain
+                        label 将当前用户设置为
+                        select#isadmin(name="isadmin",data-role="slider")
+                            option(value="0") 用户
+                            option(value="1") 管理员
+                div(data-role="footer")
+                    a(data-rel="back",class="ui-btn ui-mini ui-corner-all") Calcel
+                    input(type="submit",value="Ok",data-shadow="false",data-mini="true",data-inline="true")

@@ -1,13 +1,35 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport',content='width=device-width, initial-scale=1')
-    title Geek Parker
-    link(rel='stylesheet',href='/jquery.mobile.min.css')
-    script(src='/jquery.min.js')
-    script(src='/jquery.mobile.min.js')
-    script(src='/jquery.cookie.js')
-  body
-    #main.container
-        block content
+    head
+        meta(charset='utf-8')
+        meta(name='viewport',content='width=device-width, initial-scale=1')
+        title Geek Parker
+        link(rel='stylesheet',href='/jquery.mobile.min.css')
+        script(src='/jquery.min.js')
+        script(src='/jquery.mobile.min.js')
+        script(src='/jquery.cookie.js')
+    body
+        #main.container
+            block content
+        script.
+            var currentItem;
+            $('body')
+            .on('tap', '#admin-user .ui-content a', function(evt, data) {
+                var ct = currentItem = $(evt.currentTarget);
+                $('#openid').val(ct.data('openid'));
+                $('#isadmin').val(ct.data('isadmin') ? 1 : 0).slider('refresh');
+                console.log(ct.data('openid'), ct.data('isadmin'), $('#isadmin').val());
+            })
+            .on('submit', '#admin-user form', function(evt) {
+                evt.preventDefault();
+                $('#admin').popup('close');
+                $.post('/y/admin', $(this).serialize(), function(data) {
+                    currentItem.data('isadmin', data.isadmin);
+                    if(data.isadmin) {
+                        currentItem.find('strong').after('<span class="mystart">★</span>')
+                    } else {
+                        currentItem.find('.mystart').remove();
+                    }
+                    console.log(data);
+                });
+            });
