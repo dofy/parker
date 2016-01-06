@@ -4,12 +4,13 @@ block content
     div(data-role="page")
         div(data-role="header",data-position="fixed")
             h1 #{tstr}订餐#{users.length}人
-        .ui-content(data-role="main")
+        .ui-content(role="main")
             ol(data-role="listview")
                 each user, index in users
                     li
                         img(src="#{user.headimgurl}")
-                        |  #{user.nickname}
+                        strong  #{user.nickname}
+                        p #{user.country} - #{user.city}
         div(data-role="footer",data-position="fixed")
             div(data-role="navbar")
                 ul

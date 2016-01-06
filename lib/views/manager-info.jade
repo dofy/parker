@@ -4,8 +4,15 @@ block content
     div(data-role="page")
         div(data-role="header",data-position="fixed")
             h1 极客帕克
-        .ui-content(data-role="main")
-            h3 关于
+        .ui-content(role="main")
+            ul(data-role="listview",data-inset="true")
+                li(data-role="list-divider") 导航说明
+                li(data-icon="bullets")
+                    a(href="/y/eatlist") 订餐列表
+                li(data-icon="clock")
+                    a(href="/y/meeting") 会议室预定
+                li(data-icon="user")
+                    a(href="/y/users") 用户管理
         div(data-role="footer",data-position="fixed")
             div(data-role="navbar")
                 ul

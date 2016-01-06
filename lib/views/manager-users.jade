@@ -4,8 +4,13 @@ block content
     div(data-role="page")
         div(data-role="header",data-position="fixed")
             h1 用户管理
-        .ui-content(data-role="main")
-            p 用户管理
+        .ui-content(role="main")
+            ol(data-role="listview")
+                each user, index in users
+                    li
+                        img(src="#{user.headimgurl}")
+                        strong  #{user.nickname}
+                        p #{user.country} - #{user.city}
         div(data-role="footer",data-position="fixed")
             div(data-role="navbar")
                 ul
