@@ -24,6 +24,8 @@ block content
                         else
                             img(src="#{user.headimgurl}")
                             strong  #{user.nickname}
+                            if user.isadmin
+                                span.mystart ★
                             p #{user.country} - #{user.city}
         div(data-role="footer",data-position="fixed")
             div(data-role="navbar")
