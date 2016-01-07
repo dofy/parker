@@ -12,7 +12,7 @@ block content
                         option(value="#{week}")= weeks[week]
                 +hourlist('begin')
                 +hourlist('end')
-                input(type="submit",data-icon="heart",data-iconpos="notext",value="+")
+                input(type="submit",data-icon="plus",data-iconpos="notext",value="+")
             ul#meeting-list(data-role="listview",data-inset="true")
                 for meeting in meetings
                     li= meeting.begin
