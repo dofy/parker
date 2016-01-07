@@ -17,7 +17,7 @@ block content
                 select(name="end",data-inline="true",data-mini="true")
                     for hour in hours
                         option(value="#{hour}")= hour
-                input(type="submit",value="预约",data-inline="true",data-mini="true")
+                input(type="submit",data-icon="heart",data-iconpos="notext",data-inline="true")
             ul#meeting-list(data-role="listview",data-inset="true")
                 for meeting in meetings
                     li= meeting.begin
