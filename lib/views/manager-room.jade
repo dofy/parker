@@ -10,11 +10,10 @@ block content
                 select(name="week",data-inline="true",data-mini="true")
                     for week in [1, 2, 3, 4, 5]
                         option(value="#{week}")= weeks[week]
-                | 从
                 select(name="begin",data-inline="true",data-mini="true")
                     for hour in hours
                         option(value="#{hour}")= hour
-                | 到
+                | -
                 select(name="end",data-inline="true",data-mini="true")
                     for hour in hours
                         option(value="#{hour}")= hour
