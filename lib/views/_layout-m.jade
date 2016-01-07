@@ -52,7 +52,7 @@ html(lang='en')
                             $('#room-list')
                                 .append(
                                     '<li id="room-' + data._id + '" data-roomid="' + data._id + '">' +
-                                    '<a href="/y/calendar">' + data.name + '</a>' +
+                                    '<a href="/y/room/' + data._id + '">' + data.name + '</a>' +
                                     '<a href="#delete-room" data-rel="popup" data-transition="slide">Delete</a>' +
                                     '</li>'
                                 ).listview('refresh');
