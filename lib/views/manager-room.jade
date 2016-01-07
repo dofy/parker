@@ -10,13 +10,9 @@ block content
                 select(name="week",data-inline="true",data-mini="true")
                     for week in [1, 2, 3, 4, 5]
                         option(value="#{week}")= weeks[week]
-                select(name="begin",data-inline="true",data-mini="true")
-                    for hour in hours
-                        option(value="#{hour}")= hour
+                +hourlist('begin')
                 | -
-                select(name="end",data-inline="true",data-mini="true")
-                    for hour in hours
-                        option(value="#{hour}")= hour
+                +hourlist('end')
                 input(type="submit",data-icon="heart",data-iconpos="notext",data-inline="true")
             ul#meeting-list(data-role="listview",data-inset="true")
                 for meeting in meetings
@@ -26,3 +22,7 @@ block content
             div(data-role="header")
                 h3 提示
             .ui-content(role="main") 预定逻辑开发中...
+    mixin hourlist(name)        
+        select(name="#{name}",data-inline="true",data-mini="true")
+            for hour in hours
+                option(value="#{hour}",selected= hour == '13' && "selected")= hour
