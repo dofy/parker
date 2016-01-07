@@ -41,7 +41,7 @@ html(lang='en')
                     }
                 });
             })
-            // room and meeting
+            // room
             .on('submit', '#room-add', function(evt) {
                 // add a new room
                 evt.preventDefault();
@@ -76,4 +76,12 @@ html(lang='en')
                         $('#room-list').listview('refresh');
                     }
                 });
+            })
+            // meeting
+            .on('submit', '#room-meeting', function(evt) {
+                evt.preventDefault();
+                $('#alert').popup('open', {
+                    positionTo: 'window'
+                });
+                //- $.post('/y/room/')
             });

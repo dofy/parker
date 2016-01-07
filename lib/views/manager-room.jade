@@ -5,8 +5,25 @@ block content
         +header(room.name, true)
         .ui-content(role="main")
             form#room-meeting
-                input(type="date")
+                - var weeks = [, '星期一', '星期二', '星期三', '星期四', '星期五']
+                - var hours = ['07', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
+                select(name="week",data-inline="true",data-mini="true")
+                    for week in [1, 2, 3, 4, 5]
+                        option(value="#{week}")= weeks[week]
+                | 从
+                select(name="begin",data-inline="true",data-mini="true")
+                    for hour in hours
+                        option(value="#{hour}")= hour
+                | 到
+                select(name="end",data-inline="true",data-mini="true")
+                    for hour in hours
+                        option(value="#{hour}")= hour
+                input(type="submit",value="预约",data-inline="true",data-mini="true")
             ul#meeting-list(data-role="listview",data-inset="true")
                 for meeting in meetings
                     li= meeting.begin
         +footer('meeting')
+        #alert(data-role="popup")
+            div(data-role="header")
+                h3 提示
+            .ui-content(role="main") 预定逻辑开发中...
