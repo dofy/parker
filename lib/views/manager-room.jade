@@ -6,7 +6,7 @@ block content
         .ui-content(role="main")
             form#room-meeting
                 - var weeks = [, '周一', '周二', '周三', '周四', '周五']
-                - var hours = ['07', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
+                - var hours = ['07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
                 select(name="week",data-inline="true",data-mini="true")
                     for week in [1, 2, 3, 4, 5]
                         option(value="#{week}")= weeks[week]
