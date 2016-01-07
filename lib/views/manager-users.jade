@@ -2,8 +2,7 @@ extends _layout-m
 
 block content
     #admin-user(data-role="page")
-        div(data-role="header",data-position="fixed")
-            h1 用户管理
+        +header("用户管理")
         .ui-content(role="main")
             ol(data-role="listview",data-filter="true",data-filter-placeholder="查找用户...")
                 each user, index in users
@@ -27,23 +26,13 @@ block content
                             if user.isadmin
                                 span.mystart ★
                             p #{user.country} - #{user.city}
-        div(data-role="footer",data-position="fixed")
-            div(data-role="navbar")
-                ul
-                    li
-                        a(href="/y/eatlist",data-icon="bullets")
-                    li
-                        a(href="/y/meeting",data-icon="clock")
-                    li
-                        a(href="/y/users",data-icon="user",class="ui-btn-active ui-state-persist")
-                    li
-                        a(href="/y/info",data-icon="info")
+        +footer('users')
         #admin(data-role="popup",data-arrow="true",style="width: 200px;")
             form
                 div(data-role="header")
                     h3 设置角色
                 .ui-content(role="main")
-                    input#openid(type="hidden",name="openid",value="")
+                    input#openid(type="hidden",name="openid")
                     .ui-field-contain
                         label 将当前用户设置为
                         select#isadmin(name="isadmin",data-role="slider")

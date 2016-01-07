@@ -2,8 +2,7 @@ extends _layout-m
 
 block content
     div(data-role="page")
-        div(data-role="header",data-position="fixed")
-            h1 #{tstr}订餐#{users.length}人
+        +header(tstr + "订餐" + users.length + "人")
         .ui-content(role="main")
             ol(data-role="listview")
                 each user, index in users
@@ -11,14 +10,4 @@ block content
                         img(src="#{user.headimgurl}")
                         strong  #{user.nickname}
                         p #{user.country} - #{user.city}
-        div(data-role="footer",data-position="fixed")
-            div(data-role="navbar")
-                ul
-                    li
-                        a(href="/y/eatlist",data-icon="bullets",class="ui-btn-active ui-state-persist")
-                    li
-                        a(href="/y/meeting",data-icon="clock")
-                    li
-                        a(href="/y/users",data-icon="user")
-                    li
-                        a(href="/y/info",data-icon="info")
+        +footer('eatlist')

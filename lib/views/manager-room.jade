@@ -1,0 +1,12 @@
+extends _layout-m
+
+block content
+    #admin-calendar(data-role="page")
+        +header(room.name, true)
+        .ui-content(role="main")
+            form#room-meeting
+                input(type="date")
+            ul#meeting-list(data-role="listview",data-inset="true")
+                for meeting in meetings
+                    li= meeting.begin
+        +footer('meeting')

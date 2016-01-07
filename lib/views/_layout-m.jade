@@ -1,3 +1,4 @@
+include inc-mixins.jade
 doctype html
 html(lang='en')
     head
@@ -17,23 +18,62 @@ html(lang='en')
         #main.container
             block content
         script.
-            var currentItem;
+            var curItem;
             $('body')
+            // users
             .on('tap', '#admin-user .ui-content a', function(evt, data) {
-                var ct = currentItem = $(evt.currentTarget);
+                // select an user
+                var ct = curItem = $(evt.currentTarget);
                 $('#openid').val(ct.data('openid'));
                 $('#isadmin').val(ct.data('isadmin') ? 1 : 0).slider('refresh');
                 console.log(ct.data('openid'), ct.data('isadmin'), $('#isadmin').val());
             })
             .on('submit', '#admin-user form', function(evt) {
+                // change user
                 evt.preventDefault();
                 $('#admin').popup('close');
                 $.post('/y/admin', $(this).serialize(), function(data) {
-                    currentItem.data('isadmin', data.isadmin);
+                    curItem.data('isadmin', data.isadmin);
                     if(data.isadmin) {
-                        currentItem.find('strong').after('<span class="mystart">★</span>')
+                        curItem.find('strong').after('<span class="mystart">★</span>')
                     } else {
-                        currentItem.find('.mystart').remove();
+                        curItem.find('.mystart').remove();
+                    }
+                });
+            })
+            // room and meeting
+            .on('submit', '#room-add', function(evt) {
+                // add a new room
+                evt.preventDefault();
+                $.post('/y/room', $(this).serialize(), function(data) {
+                    if(!data.code) {
+                        $('#room-name').val('');
+                        if(!$('#room-' + data._id).size()) {
+                            $('#room-list')
+                                .append(
+                                    '<li id="room-' + data._id + '" data-roomid="' + data._id + '">' +
+                                    '<a href="/y/calendar">' + data.name + '</a>' +
+                                    '<a href="#delete-room" data-rel="popup" data-transition="slide">Delete</a>' +
+                                    '</li>'
+                                ).listview('refresh');
+                        }
+                    } else {
+                        console.log(data);
+                    }
+                });
+            })
+            .on('tap', '#room-list li', function(evt) {
+                curItem = $(this);
+            })
+            .on('submit', '#delete-room form', function(evt) {
+                evt.preventDefault();
+                $('#delete-room').popup('close');
+                $.ajax({
+                    type: 'delete',
+                    url: '/y/room/' + curItem.data('roomid'),
+                    success: function(data) {
+                        $('#room-' + curItem.data('roomid')).remove();
+                        $('#room-list').listview('refresh');
                     }
                 });
             });

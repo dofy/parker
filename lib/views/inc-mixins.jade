@@ -1,0 +1,33 @@
+mixin header(title, addBack)
+    div(data-role="header",data-position="fixed",data-add-back-btn=addBack)
+        h1= title
+
+mixin footer(cat)
+    - var classes = ["ui-btn-active", "ui-state-persist"]
+    div(data-role="footer",data-position="fixed")
+        div(data-role="navbar")
+            ul
+                li
+                    a(
+                        href="/y/eatlist"
+                        data-icon="bullets"
+                        class= cat == 'eatlist' && classes
+                    )
+                li
+                    a(
+                        href="/y/meeting"
+                        data-icon="clock"
+                        class= cat == 'meeting' && classes
+                    )
+                li
+                    a(
+                        href="/y/users"
+                        data-icon="user"
+                        class= cat == 'users' && classes
+                    )
+                li
+                    a(
+                        href="/y/info"
+                        data-icon="info"
+                        class= cat == 'info' && classes
+                    )
