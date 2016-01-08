@@ -59,7 +59,7 @@
                     "key": "getList"
                 },
                 {
-                    "name": "订餐名单",
+                    "name": "更多...",
                     "type": "view",
                     "url": "{{jump url}}"
                 }
