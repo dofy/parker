@@ -43,6 +43,7 @@ function start() {
     }));
 
     app.use('/wxapi', require('./lib/routers/wxapi'));
+    app.use('/x', require('./lib/routers/admin'));
     app.use('/y', require('./lib/routers/manager'));
     app.use('/z', require('./lib/routers/eatlist'));
 
@@ -62,7 +63,7 @@ function start() {
     // util.setLevel('ERROR');
 
     // create menu
-    $.wechat.createMenu(require('./lib/config/menu.json'));
+    //$.wechat.createMenu(require('./lib/config/menu.json'));
 
     $.error('=====================================================');
     $.error('==    |-.-|    GEEK PARKER API SERVICE    |-.-|    ==');
