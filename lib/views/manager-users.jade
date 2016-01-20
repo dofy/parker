@@ -16,13 +16,13 @@ block content
                                 data-rel="popup"
                             )
                                 img(src="#{user.headimgurl}")
-                                strong #{user.nickname}
+                                strong #{user.name || user.nickname}
                                 if user.isadmin
                                     span.mystart ★
                                 p #{user.country} - #{user.city}
                         else
                             img(src="#{user.headimgurl}")
-                            strong  #{user.nickname}
+                            strong  #{user.name || user.nickname}
                             if user.isadmin
                                 span.mystart ★
                             p #{user.country} - #{user.city}

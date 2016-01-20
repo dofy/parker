@@ -16,7 +16,7 @@ block content
                 td= index + 1
                 td
                     img.img-rounded(width=20,src="#{user.headimgurl}")
-                    |  #{user.nickname}
+                    |  #{user.name || user.nickname}
     style.
         li { padding: 7px; }
     style(media='print').

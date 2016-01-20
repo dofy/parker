@@ -8,6 +8,6 @@ block content
                 each user, index in users
                     li
                         img(src="#{user.headimgurl}")
-                        strong  #{user.nickname}
+                        strong  #{user.name || user.nickname}
                         p #{user.country} - #{user.city}
         +footer('eatlist')
