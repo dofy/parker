@@ -1,0 +1,65 @@
+include inc-admin.jade
+extends _layout
+
+block content
+    h2 用户管理
+    .container
+        +showNav('users')
+        table.table.table-hover
+            thead
+                tr
+                    th No.
+                    th 昵称
+                    th 姓名
+                    th 管理员
+                    th 操作
+            tbody
+                each user, ind in users
+                    tr(id="user_#{user._id}")
+                        td= ind + 1
+                        td
+                            img.img-rounded(width=20,src="#{user.headimgurl}")
+                            |  #{user.nickname}
+                        td
+                            input(id="name_#{user._id}",value="#{user.name || ''}")
+                        td
+                            input(id="isadmin_#{user._id}",type="checkbox",checked=user.isadmin && "checked")
+                        td
+                            a.btn.btn-default(href="javascript: void 0;",role="button",data-userid="#{user._id}") 保存
+    script.
+        $('.table .btn').on('click', function(evt) {
+            evt.preventDefault();
+            getForm($(this).data('userid'));
+        });
+        $('.table input').on('keyup', function(evt) {
+            if(evt.which === 13)
+                getForm($(this).attr('id').split('_').pop());
+        });
+        function getForm(id) {
+            var name = $('#name_' + id).val();
+            var isadmin = $('#isadmin_' + id).prop('checked');
+            changeBtn(id, '正在保存...')();
+            $.post('/x/users', {
+                id: id,
+                name: name,
+                isadmin: isadmin
+            }, function(data) {
+                if(data.code === 0) {
+                    changeBtn(id, '保存成功！', '保存')();
+                } else {
+                    changeBtn(id, '保存失败！', '保存')();
+                }
+            });
+        }
+        function changeBtn(id, text, changeBack) {
+            return function() {
+                var btn = $('#user_' + id + ' .btn');
+                btn.text(text);
+                if(changeBack !== undefined) {
+                    btn.text(text);
+                    setTimeout(function() {
+                        btn.text(changeBack);
+                    }, 1500);
+                }
+            };
+        }

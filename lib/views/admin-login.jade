@@ -1,0 +1,27 @@
+extends _layout
+
+block content
+    h2 登录后台管理
+    #msg.hidden.alert.bg-danger.text-danger
+    form(action="/x",method="post")
+        .form-group
+            label(for="openid") Who are you?
+            select#openid.form-control(name="openid")
+                each user in users
+                    option(value="#{user.openid}")= user.nickname
+        .form-group
+            label(for='code') 在极客帕克输入“admin”获取登录码：
+            input#code.form-control(name="code")
+        .form-group
+            input.btn.btn-default(type="submit",value="登录")
+    script.
+        $('form').on('submit', function(evt) {
+            evt.preventDefault();
+            $.post('/x', $(this).serialize(), function(data) {
+                if(data.code === 0) {
+                    window.location = '/x/index';
+                } else {
+                    $('#msg').removeClass('hidden').show().text(data.msg).fadeOut(2500);
+                }
+            });
+        })
