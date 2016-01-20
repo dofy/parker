@@ -25,7 +25,7 @@ block content
                         td
                             input(id="isadmin_#{user._id}",type="checkbox",checked=user.isadmin && "checked")
                         td
-                            a.btn.btn-default(href="javascript: void 0;",role="button",data-userid="#{user._id}") 保存
+                            a.btn.btn-default.btn-sm(href="javascript: void 0;",role="button",data-userid="#{user._id}") 保存
     script.
         $('.table .btn').on('click', function(evt) {
             evt.preventDefault();

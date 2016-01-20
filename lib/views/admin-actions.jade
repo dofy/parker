@@ -1,0 +1,20 @@
+include inc-admin.jade
+extends _layout
+
+block content
+    h2 活动管理
+    .container
+        +showNav('actions')
+        table.table.table-hover
+            thead
+                tr
+                    th ID
+                    th 活动名称
+                    th 管理
+            tbody
+                each action, id in actions
+                    tr
+                        td= id
+                        td= action.title
+                        td
+                            a.btn.btn-default.btn-sm(href="/x/actions/#{id}") 管理
