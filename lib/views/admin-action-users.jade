@@ -55,7 +55,7 @@ block content
             });
         }
         function userMatch() {
-            $.getJSON('/x/match/#{actionid}', function(data) {
+            $.post('/x/match/#{actionid}', function(data) {
                 $('#msg').removeClass('hidden').text(data.msg).show().fadeOut(2500);
             });
         }
