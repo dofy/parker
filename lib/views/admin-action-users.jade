@@ -5,12 +5,16 @@ block content
     h2 #{action.title} - 用户管理
     .container
         +showNav('actions')
-        .text-right
-            each btn in action.btns
-                a.btn.btn-default.btn-sm(href="javascript:void #{btn.action};")= btn.title
-        #msg.hidden.alert.bg-info.text-info
-        +userlist('已加入活动用户', usersin, 'quit', '移除')
-        +userlist('未加入活动用户', usersout, 'joinin', '加入')
+        if action.close
+            +userlist('已加入活动用户', usersin, 'console.log', 'N/A')
+            +userlist('未加入活动用户', usersout, 'console.log', 'N/A')
+        else
+            .text-right
+                each btn in action.btns
+                    a.btn.btn-default.btn-sm(href="javascript:void #{btn.action};")= btn.title
+            #msg.hidden.alert.bg-info.text-info
+            +userlist('已加入活动用户', usersin, 'quit', '移除')
+            +userlist('未加入活动用户', usersout, 'joinin', '加入')
     script.
         function joinin(id) {
             request('in', id, function(data) {
