@@ -27,6 +27,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "express-xml-bodyparser": "0.0.7",
+    "iconv-lite": "^0.4.13",
     "jade": "^1.11.0",
     "log4js": "^0.6.29",
     "moment": "^2.11.1",

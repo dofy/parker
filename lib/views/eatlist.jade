@@ -8,6 +8,8 @@ block content
                 a(href="./am") 上午
             li
                 a(href="./pm") 下午
+            li
+                a(href="javascript:void gugu();") 咕咕
     table.table.table-bordered
         tbody
             each user, index in users
@@ -21,3 +23,7 @@ block content
         li { padding: 7px; }
     style(media='print').
         .no-print { display: none; }
+    script.
+        function gugu() {
+            $.post('./#{typecat}');
+        }
