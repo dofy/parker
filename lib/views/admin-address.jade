@@ -1,0 +1,50 @@
+include inc-admin.jade
+extends _layout
+
+block content
+    h2 通讯录
+    +showNav('address')
+    .main
+        div(style="float: right;")
+            a(href='#' data-toggle="modal" data-target="#dialogModel" class='btn btn-default' style="margin:5px") 导入通讯录
+            a(href='javascript: void(0)' id='deleteAll' class='btn btn-danger') 删除全部
+        table.table.table-hover
+            thead
+                tr
+                    th No.
+                    th 姓名
+                    th 电话号码
+                    th 部门
+            tbody
+                each address, index in list
+                    tr(id="address_#{address._id}")
+                        td= index + 1
+                        td #{address.name}
+                        td #{address.phoneNumber}
+                        td #{address.department}
+        
+        div(class="modal fade " id="dialogModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel")
+            div(class="modal-dialog" role="document")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                            span(aria-hidden="true") &times;
+                        h4(class="modal-title") 上传通讯录
+                        .modal-body
+                            form(id="uploadAddress" enctype="multipart/form-data" method="POST" action="/x/address")
+                                input(type="file" id="uploadFile" name="uploadFile"  accept=".xlsx")
+                                
+                        .modal-footer        
+                            button(type="button" class="btn btn-default" data-dismiss="modal") close
+                            button(type="submit" id="upload" class="btn btn-primary") submit
+    script.
+        $('#deleteAll').on('click',function(event){
+            if (confirm('确认删除后，不可恢复请重新导入')) {
+                $.ajax({'url':'/x/address','type':'DELETE','success':function(reslut){
+                    location=location;
+                }});
+            }    
+        });
+        $('#upload').on('click',function(event){
+            $('#uploadAddress').submit();
+        });

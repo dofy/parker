@@ -1,38 +1,41 @@
 {
-  "name": "parker",
-  "version": "1.0.0",
-  "description": "Geek Parker",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dofy/parker.git"
-  },
-  "keywords": [
-    "weixin",
-    "geekpark"
-  ],
-  "author": "Seven Yu",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/dofy/parker/issues"
-  },
-  "homepage": "https://github.com/dofy/parker#readme",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "compression": "^1.6.1",
-    "cron": "^1.1.0",
-    "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "express-xml-bodyparser": "0.0.7",
-    "iconv-lite": "^0.4.13",
-    "jade": "^1.11.0",
-    "log4js": "^0.6.31",
-    "moment": "^2.11.2",
-    "mongoose": "^4.4.4",
-    "request": "^2.69.0",
-    "xml": "^1.0.1"
-  }
+    "name": "parker",
+    "version": "1.0.0",
+    "description": "Geek Parker",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dofy/parker.git"
+    },
+    "keywords": [
+        "weixin",
+        "geekpark"
+    ],
+    "author": "Seven Yu",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dofy/parker/issues"
+    },
+    "homepage": "https://github.com/dofy/parker#readme",
+    "dependencies": {
+        "body-parser": "^1.15.0",
+        "compression": "^1.6.1",
+        "cron": "^1.1.0",
+        "express": "^4.13.4",
+        "express-session": "^1.13.0",
+        "express-xml-bodyparser": "0.0.7",
+        "iconv-lite": "^0.4.13",
+        "jade": "^1.11.0",
+        "log4js": "^0.6.31",
+        "moment": "^2.11.2",
+        "mongoose": "^4.4.4",
+        "request": "^2.69.0",
+        "xml": "^1.0.1",
+        "connect-multiparty": "^2.0.0",
+        "excel": "^0.1.4",
+        "q": "^1.4.1"
+    }
 }
