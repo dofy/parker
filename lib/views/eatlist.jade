@@ -1,29 +1,39 @@
-extends _layout
+extends _layout-m
 
 block content
-    h4 #{today} #{tstr} - 订餐列表 (#{users.length})
-    .container.no-print
-        ul.nav.navbar-nav
-            li
-                a(href="./am") 上午
-            li
-                a(href="./pm") 下午
-            li
-                a(href="javascript:void gugu();") 咕咕
-    table.table.table-bordered
-        tbody
-            each user, index in users
-                if index % 3 == 0
-                    tr
-                td= index + 1
-                td
-                    img.img-rounded(width=20,src="#{user.headimgurl}")
-                    |  #{user.name || user.nickname}
-    style.
-        li { padding: 7px; }
-    style(media='print').
-        .no-print { display: none; }
+    div(data-role="page")
+        +header(tstr + "订餐" + users.length + "人")
+        .ui-content(role="main")
+            ol(data-role="listview")
+                each user, index in users
+                    li
+                        img(src="#{user.headimgurl}")
+                        strong  #{user.name || user.nickname}
+                        p #{user.country} - #{user.city}
+        +menu(typecat)
+
     script.
         function gugu() {
-            $.post('./#{typecat}');
+            $.post('.#{typecat}');
         }
+
+mixin menu(cat)
+    - var classes = ["ui-btn-active", "ui-state-persist"]
+    div(data-role="footer",data-position="fixed")
+        div(data-role="navbar")
+            ul
+                li
+                    a(
+                        href="/z/am"
+                        class= cat == 'am' && classes
+                    ) 上午
+                li
+                    a(
+                        href="/z/pm"
+                        class= cat == 'pm' && classes
+                    ) 下午
+                li
+                    a(
+                        href="javascript:void gugu();"
+                        class='gugu'
+                    ) 咕咕
