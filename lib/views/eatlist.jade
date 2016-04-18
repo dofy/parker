@@ -13,8 +13,8 @@ block content
         +menu(typecat)
 
     script.
-        function gugu() {
-            $.post('.#{typecat}');
+        function gugu(cat) {
+            $.post('./' + cat);
         }
 
 mixin title(title)
@@ -38,6 +38,6 @@ mixin menu(cat)
                     ) 下午
                 li
                     a(
-                        href="javascript:void gugu();"
+                        href="javascript:void gugu('#{cat}');"
                         class='gugu'
                     ) 咕咕
