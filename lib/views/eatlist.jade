@@ -2,7 +2,7 @@ extends _layout-m
 
 block content
     div(data-role="page")
-        +header(tstr + "订餐" + users.length + "人")
+        +title(tstr + "订餐" + users.length + "人")
         .ui-content(role="main")
             ol(data-role="listview")
                 each user, index in users
@@ -16,6 +16,10 @@ block content
         function gugu() {
             $.post('.#{typecat}');
         }
+
+mixin title(title)
+    div(data-role="header",data-position="fixed")
+        h1= title
 
 mixin menu(cat)
     - var classes = ["ui-btn-active", "ui-state-persist"]
