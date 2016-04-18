@@ -18,7 +18,8 @@ block content
         }
 
 mixin title(title)
-    div(data-position="fixed")= title
+    div(data-position="fixed")
+        h3= title
 
 mixin menu(cat)
     - var classes = ["ui-btn-active", "ui-state-persist"]
