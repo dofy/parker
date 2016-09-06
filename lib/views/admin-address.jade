@@ -12,6 +12,8 @@ block content
             thead
                 tr
                     th No.
+                    th GeekID
+                    th Fesco
                     th 姓名
                     th 电话号码
                     th 部门
@@ -19,10 +21,12 @@ block content
                 each address, index in list
                     tr(id="address_#{address._id}")
                         td= index + 1
+                        td #{address.geekid}
+                        td #{address.fesco}
                         td #{address.name}
                         td #{address.phoneNumber}
                         td #{address.department}
-        
+
         div(class="modal fade " id="dialogModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel")
             div(class="modal-dialog" role="document")
                 div(class="modal-content")
@@ -33,8 +37,8 @@ block content
                         .modal-body
                             form(id="uploadAddress" enctype="multipart/form-data" method="POST" action="/x/address")
                                 input(type="file" id="uploadFile" name="uploadFile"  accept=".xlsx")
-                                
-                        .modal-footer        
+
+                        .modal-footer
                             button(type="button" class="btn btn-default" data-dismiss="modal") close
                             button(type="submit" id="upload" class="btn btn-primary") submit
     script.
@@ -43,7 +47,7 @@ block content
                 $.ajax({'url':'/x/address','type':'DELETE','success':function(reslut){
                     location=location;
                 }});
-            }    
+            }
         });
         $('#upload').on('click',function(event){
             $('#uploadAddress').submit();
