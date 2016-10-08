@@ -28,6 +28,8 @@ function start() {
     app.use($.logAccess);
 
     app.use(session({
+        resave: false,
+        saveUninitialized: true,
         secret: $.config.secret
     }));
 
