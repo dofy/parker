@@ -58,6 +58,7 @@ function start() {
     job.register('lunch');
     job.register('dinner');
     job.register('sync');
+    //job.register('test');
 
     //job.tick('sync');
 
