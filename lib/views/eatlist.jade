@@ -8,7 +8,7 @@ block content
             each user, index in users
                 tr
                     td
-                        img(src="#{user.headimgurl}")
+                        img(src="#{user.headimgurl}",width="32")
                         strong  #{user.name || user.nickname}
                         p #{user.country} - #{user.city}
 
