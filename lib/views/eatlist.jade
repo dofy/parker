@@ -6,11 +6,11 @@ block content
     table.table
         tbody
             each user, index in users
-                tr
-                    td
-                        img(src="#{user.headimgurl}",width="32")
-                        strong  #{user.name || user.nickname}
-                        p #{user.country} - #{user.city}
+                if index % 3 == 0
+                    tr
+                td
+                    img(src="#{user.headimgurl}",width="32")
+                    strong  #{user.name || user.nickname}
 
     script.
         function gugu(cat) {
@@ -21,7 +21,7 @@ mixin menu(cat)
     ul.nav.nav-pills
         li(class= cat == 'am' && 'active')
             a( href="/z/am") 上午
-        li(class= cat == 'am' && 'active')
+        li(class= cat == 'pm' && 'active')
             a( href="/z/pm") 下午
         li
             a( href="javascript:void gugu('#{cat}');") 咕咕
