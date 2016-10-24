@@ -17,6 +17,7 @@ block content
                     th 姓名
                     th 电话号码
                     th 部门
+                    th 职位
             tbody
                 each address, index in list
                     tr(id="address_#{address._id}")
@@ -26,6 +27,7 @@ block content
                         td #{address.name}
                         td #{address.phoneNumber}
                         td #{address.department}
+                        td #{address.position}
 
         div(class="modal fade " id="dialogModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel")
             div(class="modal-dialog" role="document")
