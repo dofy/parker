@@ -1,12 +1,22 @@
 {
-    "2016": {
-        "title": "2016 越南行",
-        "close": true,
-        "btns": [
-            {
-                "title": "生成匹配数据",
-                "action": "userMatch()"
-            }
-        ]
-    }
+  "2016": {
+    "title": "2016 越南行",
+    "close": true,
+    "btns": [
+      {
+        "title": "生成匹配数据",
+        "action": "userMatch()"
+      }
+    ]
+  },
+  "2017": {
+    "title": "2017 年会",
+    "close": false,
+    "btns": [
+      {
+        "title": "生成匹配数据",
+        "action": "userMatch()"
+      }
+    ]
+  }
 }
