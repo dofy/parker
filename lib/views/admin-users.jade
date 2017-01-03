@@ -11,6 +11,7 @@ block content
                     th No.
                     th 昵称
                     th 姓名
+                    th 访客
                     th 管理员
                     th 操作
             tbody
@@ -22,6 +23,8 @@ block content
                             |  #{user.nickname}
                         td
                             input(id="name_#{user._id}",value="#{user.name || ''}")
+                        td
+                            input(id="isguest_#{user._id}",type="checkbox",checked=user.isguest && "checked")
                         td
                             input(id="isadmin_#{user._id}",type="checkbox",checked=user.isadmin && "checked")
                         td
@@ -37,11 +40,13 @@ block content
         });
         function getForm(id) {
             var name = $('#name_' + id).val();
+            var isguest = $('#isguest_' + id).prop('checked');
             var isadmin = $('#isadmin_' + id).prop('checked');
             changeBtn(id, '正在保存...')();
             $.post('/x/users', {
                 id: id,
                 name: name,
+                isguest: isguest,
                 isadmin: isadmin
             }, function(data) {
                 if(data.code === 0) {
