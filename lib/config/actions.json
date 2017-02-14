@@ -11,7 +11,7 @@
   },
   "2017": {
     "title": "2017 年会",
-    "close": false,
+    "close": true,
     "btns": [
       {
         "title": "生成匹配数据",
