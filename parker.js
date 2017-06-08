@@ -48,6 +48,7 @@ function start() {
     app.use('/x', require('./lib/routers/admin'));
     app.use('/y', require('./lib/routers/manager'));
     app.use('/z', require('./lib/routers/eatlist'));
+    app.use('/a', require('./lib/routers/app'));
 
     app.get('/*', function(req, res) {
         $.result(res, 'URI_NOT_FOUND', $.errCode.URI_NOT_FOUND, 403);
