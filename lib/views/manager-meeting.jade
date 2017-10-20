@@ -2,7 +2,7 @@ extends _layout-m
 
 block content
     #admin-meeting(data-role="page")
-        +header("预约会议室")
+        +header("会议室")
         .ui-content(role="main")
             if isadmin
                 form#room-add
@@ -14,7 +14,7 @@ block content
             )
                 for room in rooms
                     li(id="room-#{room._id}",data-roomid="#{room._id}")
-                        a(href="/y/room/#{room._id}")= room.name
+                        a(href="#")= room.name
                         if isadmin
                             a(href="#delete-room",data-rel="popup",data-transition="slide") Delete
         +footer('meeting')
