@@ -3,7 +3,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     session = require('express-session'),
     path = require('path'),
-    jade = require('jade'),
+    pug = require('pug'),
     $ = require('./lib/utils'),
     job = require('./lib/job'),
     app = express();
@@ -19,7 +19,7 @@ $.mongo.connect($.config.mongo, function(err) {
 
 function start() {
     app.set('views', path.join(__dirname, 'lib/views'));
-    app.set('view engine', 'jade');
+    app.set('view engine', 'pug');
 
     app.use(compression({
         threshold: 512

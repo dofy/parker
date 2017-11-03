@@ -31,10 +31,10 @@
     "express-session": "^1.15.6",
     "express-xml-bodyparser": "0.0.7",
     "iconv-lite": "^0.4.19",
-    "jade": "^1.11.0",
     "log4js": "^0.6.38",
     "moment": "^2.19.1",
     "mongoose": "^4.12.4",
+    "pug": "^2.0.0-rc.4",
     "q": "^1.5.1",
     "request": "^2.83.0",
     "xml": "^1.0.1"
