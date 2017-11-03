@@ -7,7 +7,7 @@ block content
             ol(data-role="listview")
                 each user, index in users
                     li
-                        img(src="#{user.headimgurl}")
+                        img(src=user.headimgurl)
                         strong  #{user.name || user.nickname}
                         p #{user.country} - #{user.city}
         +footer('eatlist')

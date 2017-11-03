@@ -8,7 +8,7 @@ block content
             label(for="openid") Who are you?
             select#openid.form-control(name="openid")
                 each user in users
-                    option(value="#{user.openid}")= user.nickname
+                    option(value=user.openid)= user.nickname
         .form-group
             label(for='code') 在极客帕克输入“admin”获取登录码：
             input#code.form-control(name="code")

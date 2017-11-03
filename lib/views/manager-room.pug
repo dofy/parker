@@ -9,7 +9,7 @@ block content
                 - var hours = ['07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21']
                 select(name="week",data-inline="true")
                     for week in [1, 2, 3, 4, 5]
-                        option(value="#{week}")= weeks[week]
+                        option(value=week)= weeks[week]
                 +hourlist('begin')
                 +hourlist('end')
                 input(type="submit",data-icon="plus",data-iconpos="notext",value="+")
@@ -22,6 +22,6 @@ block content
                 h3 提示
             .ui-content(role="main") 预定逻辑开发中...
     mixin hourlist(name)        
-        select(name="#{name}",data-inline="true")
+        select(name=name",data-inline="true")
             for hour in hours
-                option(value="#{hour}",selected= hour == '13' && "selected") #{hour}:00
+                option(value=hour,selected= hour == '13' && "selected") #{hour}:00

@@ -9,7 +9,7 @@ block content
                 if index % 3 == 0
                     tr
                 td
-                    img(src="#{user.headimgurl}",width="32")
+                    img(src=user.headimgurl,width="32")
                     strong  #{user.name || user.nickname}
 
     script.
@@ -24,4 +24,4 @@ mixin menu(cat)
         li(class= cat == 'pm' && 'active')
             a( href="/z/pm") 下午
         li
-            a( href="javascript:void gugu('#{cat}');") 咕咕
+            a( href=`javascript:void gugu('${cat}');`) 咕咕

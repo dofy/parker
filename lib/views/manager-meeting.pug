@@ -9,11 +9,11 @@ block content
                     input#room-name(name="name",data-clear-btn="true",placeholder="添加会议室（名称）")
             ul#room-list(
                 data-role="listview"
-                data-inset="#{isadmin}"
+                data-inset=isadmin
                 data-split-icon="delete"
             )
                 for room in rooms
-                    li(id="room-#{room._id}",data-roomid="#{room._id}")
+                    li(id="room-" + room._id,data-roomid=room._id)
                         a(href="#")= room.name
                         if isadmin
                             a(href="#delete-room",data-rel="popup",data-transition="slide") Delete
