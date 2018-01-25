@@ -18,5 +18,15 @@
         "action": "userMatch()"
       }
     ]
+  },
+  "2018": {
+    "title": "2018 年会",
+    "close": false,
+    "btns": [
+      {
+        "title": "生成匹配数据",
+        "action": "userMatch()"
+      }
+    ]
   }
 }
