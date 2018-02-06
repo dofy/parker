@@ -26,6 +26,10 @@
       {
         "title": "生成匹配数据",
         "action": "userMatch()"
+      },
+      {
+        "title": "导出匹配数据",
+        "action": "giftExport()"
       }
     ]
   }

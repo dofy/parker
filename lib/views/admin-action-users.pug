@@ -64,6 +64,11 @@ block content
                 $('#msg').removeClass('hidden').text(data.msg).show().fadeOut(2500);
             });
         }
+        function giftExport() {
+          $.get('/x/match/#{actionid}', function(data) {
+            console.log(data);
+          })
+        }
 mixin userlist(title, users, func, text)
     h4
         | #{title}（
