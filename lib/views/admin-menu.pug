@@ -1,0 +1,37 @@
+extends _layout
+
+include inc-admin
+
+block content
+    h2 菜单管理
+    #msg.hidden.alert.bg-danger.text-danger
+    .container
+        +showNav('menu')
+        table.table.table-hover
+            thead
+                tr
+                    th 周
+                    th 菜单内容
+            tbody
+              each day in ['一','二','三','四','五']
+                tr
+                  td=day
+                  td
+                    input.form-control(data-day=day,type=text,value=data[day])
+              tr
+                td(colspan=2)
+                  a.btn.btn-default.btn-sm(href="javascript: void 0;",role="button") 保存
+    script.
+        $('.table .btn').on('click', function(evt) {
+            evt.preventDefault();
+            let contents = $('.table input');
+            let data = {};
+            contents.each((ind, content) => {
+              let _ = $(content);
+              data[_.data('day')] = _.val();
+            });
+            console.log(data);
+            $.post('/x/menu', data, data => {
+                $('#msg').removeClass('hidden').show().text(data.msg).fadeOut(2500);
+                });
+        });

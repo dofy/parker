@@ -2,6 +2,8 @@ mixin showNav(cat)
     ul.nav.nav-pills
         li(class= cat == 'users' && "active")
             a(href="/x/users") 用户管理
+        li(class= cat == 'menu' && "active")
+            a(href="/x/menu") 菜单管理
         li(class= cat == 'actions' && "active")
             a(href="/x/actions") 活动管理
         li(class= cat == 'address' && 'active')
