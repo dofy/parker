@@ -22,21 +22,21 @@
   },
   "homepage": "https://github.com/dofy/parker#readme",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "compression": "^1.7.1",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
     "connect-multiparty": "^2.1.0",
     "cron": "^1.3.0",
     "excel": "^0.1.7",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "express-session": "^1.15.6",
     "express-xml-bodyparser": "0.0.7",
-    "iconv-lite": "^0.4.19",
+    "iconv-lite": "^0.4.23",
     "log4js": "^0.6.38",
-    "moment": "^2.19.1",
-    "mongoose": "^4.12.4",
+    "moment": "^2.22.1",
+    "mongoose": "^4.13.13",
     "pug": "^2.0.0-rc.4",
     "q": "^1.5.1",
-    "request": "^2.83.0",
+    "request": "^2.87.0",
     "xml": "^1.0.1"
   }
 }
