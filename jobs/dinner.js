@@ -29,18 +29,18 @@ function alert() {
 }
 
 function pushAlert(openid){
-    $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
-        first: {
-            value: '晚餐提醒：'
-        },
-        schedule: {
-            value: '每日晚餐提醒'
-        },
-        time: {
-            value: '每天 14:00 提醒一次'
-        },
-        remark: {
-            value: '别忘了订今天的晚餐哦～'
-        }
-    });
+  $.wechat.sendByTemplate(openid, $.config.wechat.template.alert, {
+    first: {
+      value: 'Dinner reminder:'
+    },
+    schedule: {
+      value: 'Daily dinner reminder'
+    },
+    time: {
+      value: 'Daily reminder at 14:00'
+    },
+    remark: {
+      value: 'Don\'t forget to reserve your dinner today!'
+    }
+  });
 }
